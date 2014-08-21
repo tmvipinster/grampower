@@ -15,7 +15,7 @@ class wordParser
     void ReadWord()
      {
        cin>>searchWord;
-       curr_state=searchWord[0];
+       currState=searchWord[0];
      }
     bool parseForHello(char c)
      {
@@ -25,6 +25,7 @@ class wordParser
          if(parseLength==searchWord.length())
           return true;
          currState=searchWord[parseLength];
+         return false;
        }
       currState=searchWord[0];
       return false;
@@ -32,12 +33,12 @@ class wordParser
  };
 int main()
  {
-  WordParser obj;
+  wordParser obj;
   obj.ReadWord();
   char c;
   while(true)
    {
-       c=getchar();
+       cin>>c;
        bool helloFound = obj.parseForHello(c); 
        if(helloFound) 
         { 
